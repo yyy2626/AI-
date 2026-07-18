@@ -1,10 +1,16 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { Fredoka } from 'next/font/google'
 import './globals.css'
 
+const fredoka = Fredoka({
+  subsets: ['latin'],
+  variable: '--font-fredoka',
+})
+
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'AIっち - AI育成ゲーム',
+  description: 'かわいいAIペットを育てよう！ごはんをあげたり、勉強させたり、遊んだりして進化させよう。',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -39,8 +45,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="antialiased">
+    <html lang="ja" className={`${fredoka.variable} bg-background`}>
+      <body className="antialiased font-sans">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
