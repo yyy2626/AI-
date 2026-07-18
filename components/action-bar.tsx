@@ -1,6 +1,6 @@
 'use client'
 
-import { Cookie, Gamepad2, BookOpen, Moon, Hand, type LucideIcon } from 'lucide-react'
+import { Cookie, Gamepad2, BookOpen, Moon, Hand, Sparkles, type LucideIcon } from 'lucide-react'
 import type { ActionId } from '@/lib/game'
 
 type ActionDef = {
@@ -21,12 +21,13 @@ export function ActionBar({ onAction, isSleeping }: ActionBarProps) {
     { id: 'feed', label: 'ごはん', icon: Cookie, color: 'bg-primary', text: 'text-primary-foreground' },
     { id: 'play', label: 'あそぶ', icon: Gamepad2, color: 'bg-secondary', text: 'text-secondary-foreground' },
     { id: 'study', label: 'べんきょう', icon: BookOpen, color: 'bg-chart-4', text: 'text-white' },
+    { id: 'clean', label: 'おそうじ', icon: Sparkles, color: 'bg-chart-2', text: 'text-white' },
     { id: 'pet', label: 'なでる', icon: Hand, color: 'bg-chart-5', text: 'text-white' },
     { id: 'sleep', label: isSleeping ? 'おこす' : 'ねむる', icon: Moon, color: 'bg-accent', text: 'text-accent-foreground' },
   ]
 
   return (
-    <div className="grid grid-cols-3 gap-3 sm:grid-cols-5">
+    <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
       {actions.map((a) => {
         const disabled = isSleeping && a.id !== 'sleep'
         return (
